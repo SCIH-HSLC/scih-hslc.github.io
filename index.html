@@ -1,0 +1,82 @@
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir PDF ao Clicar</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #painel-botoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .botao {
+            background: #fff;
+            width: 220px;
+            height: 120px;
+            border-radius: 12px;
+            box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .botao:hover {
+            box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .botao i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .botao div {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="painel-botoes">
+        <div class="botao" onclick="abrirPDF('https://raw.githubusercontent.com/SCIH-HSLC/lembretes/main/TABELA%20DE%20PRECAU%C3%87%C3%95ES%20POR%20DOEN%C3%87AS%20OK.pdf')">
+            <i class="glyphicon glyphicon-list-alt"></i>
+            <div>Tabela de Doenças</div>
+        </div>
+        <div class="botao" onclick="abrirPDF('arquivo2.pdf')">
+            <i class="glyphicon glyphicon-stats"></i>
+            <div>Boletim SCIH</div>
+        </div>
+        <div class="botao" onclick="abrirPDF('arquivo3.pdf')">
+            <i class="glyphicon glyphicon-calendar"></i>
+            <div>Cronogramas</div>
+        </div>
+    </div>
+
+    <script>
+        function abrirPDF(caminho) {
+            window.open(caminho, '_blank');
+        }
+    </script>
+</body>
+</html>
