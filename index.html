@@ -129,19 +129,7 @@
             document.getElementById("modal").style.display = "none";
         }
 
-        function desenharGrafico() {
-            const ctx = document.getElementById('grafico').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
-                    datasets: [{
-                        label: 'Consumo de Álcool (Litros)',
-                        data: [12, 19, 3, 5, 2],
-                        backgroundColor: 'rgba(75, 192, 192, 0.5)'
-                    }]
-                }
-                function desenharGrafico() {
+         function desenharGrafico() {
             const ctx = document.getElementById('grafico').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
