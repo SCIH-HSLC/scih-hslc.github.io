@@ -141,6 +141,18 @@
                         backgroundColor: 'rgba(75, 192, 192, 0.5)'
                     }]
                 }
+                function desenharGrafico() {
+            const ctx = document.getElementById('grafico').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+                    datasets: [{
+                        label: 'Consumo de Álcool (Litros)',
+                        data: [12, 1, 0, 0, 0],
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)'
+                    }]
+                }
             });
         }
     </script>
