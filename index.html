@@ -92,12 +92,23 @@
 </head>
 <body>
     <div id="painel-botoes">
-        <div class="botao" onclick=function abrirPDF() {
-    var pdfUrl = "https://viewscreen.githubusercontent.com/view/pdf?browser=opera&bypass_fastly=true&color_mode=auto&commit=b6e1456a32c20f2817175e195ad9524920c809a4&device=unknown_device&docs_host=https%3A%2F%2Fdocs.github.com&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f534349482d48534c432f6c656d6272657465732f623665313435366133326332306632383137313735653139356164393532343932306338303961342f544142454c4120444520505245434155c387c395455320504f5220444f454ec3874153204f4b2e706466&logged_in=true&nwo=SCIH-HSLC%2Flembretes&path=TABELA+DE+PRECAUÇÕES+POR+DOENÇAS+OK.pdf&platform=windows&repository_id=940071965&repository_type=Repository&version=117#bfb7d35f-fe75-4390-bf15-16a1e933048f";
-    var win = window.open(pdfUrl, '_blank');
+    <div class="botao" onclick="abrirPDF()">
+        <div class="icone-botao b1">
             <i class="glyphicon glyphicon-list-alt"></i>
-            <div>Tabela de Doenças</div>
         </div>
+        <div class="nome-botao">
+            Tabela de Doenças
+        </div>
+    </div>
+</div>
+
+<script>
+function abrirPDF() {
+    var pdfUrl = "https://docs.google.com/gview?url=https://raw.githubusercontent.com/SCIH-HSLC/lembretes/main/TABELA%20DE%20PRECAU%C3%87%C3%95ES%20POR%20DOEN%C3%87AS%20OK.pdf&embedded=true";
+    window.open(pdfUrl, '_blank');
+}
+</script>
+
         <div class="botao" onclick="abrirPDF('https://scih-hslc.github.io/Higienedasmaos/')">
             <i class="glyphicon glyphicon-eye-open"></i>
             <div>Formulario observadores oculto</div>
