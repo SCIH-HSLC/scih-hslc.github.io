@@ -112,41 +112,41 @@
 
     <!-- Modal para gráficos -->
     <div id="modal">
-        <div id="modal-content">
-            <h2>Gráfico de Consumo de Álcool</h2>
-            <canvas id="grafico"></canvas>
-            <button class="close-btn" onclick="fecharModal()">Fechar</button>
-        </div>
+    <div id="modal-content">
+        <h2>Gráfico de Consumo de Álcool</h2>
+        <canvas id="grafico"></canvas>
+        <button class="close-btn" onclick="fecharModal()">Fechar</button>
     </div>
+</div>
 
-    <script>
-        function abrirPDF(caminho) {
-            window.open(caminho, '_blank');
-        }
+<script>
+    function abrirPDF(caminho) {
+        window.open(caminho, '_blank');
+    }
 
-        function abrirModal() {
-            document.getElementById("modal").style.display = "flex";
-            desenharGrafico();
-        }
+    function abrirModal() {
+        document.getElementById("modal").style.display = "flex";
+        desenharGrafico();
+    }
 
-        function fecharModal() {
-            document.getElementById("modal").style.display = "none";
-        }
+    function fecharModal() {
+        document.getElementById("modal").style.display = "none";
+    }
 
-         function desenharGrafico() {
-            const ctx = document.getElementById('grafico').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
-                    datasets: [{
-                        label: 'Consumo de Álcool(Adesão geral)',
-                        data: [84,86, 0, 0, 0],
-                        backgroundColor: 'rgba(0, 0, 198, 0.5)'
-                    }]
-                }
-            });
-        }
+    function desenharGrafico() {
+        const ctx = document.getElementById('grafico').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['UTI ADU', 'UTI PED', 'UTI NEO', 'PSA', 'PSI', 'PSGO', 'PSORT', '7°', '6°', '5°', 'PED', 'CC', 'CO', 'HOSP DIA', 'SADT'],
+                datasets: [{
+                    label: 'Consumo de Álcool (Adesão geral)',
+                    data: [84, 86, 75, 90, 88, 79, 85, 87, 80, 78, 76, 82, 81, 83, 77], // Exemplo de dados
+                    backgroundColor: 'rgba(0, 0, 198, 0.5)'
+                }]
+            }
+        });
+    }
     </script>
 </body>
 </html>
