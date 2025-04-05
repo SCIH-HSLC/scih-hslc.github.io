@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abrir PDF e Gráficos</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <!-- Inclusão do CSS completo do Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -92,19 +93,19 @@
 </head>
 <body>
     <div id="painel-botoes">
-        <div class="botao" onclick="abrirPDF('https://docs.google.com/gview?url=https://raw.githubusercontent.com/SCIH-HSLC/lembretes/main/TABELA%20DE%20PRECAU%C3%87%C3%95ES%20POR%20DOEN%C3%87AS%20OK.pdf&embedded=true')">
+        <div class="botao" onclick="abrirPDF('https://raw.githubusercontent.com/SCIH-HSLC/lembretes/main/TABELA%20DE%20PRECAU%C3%87%C3%95ES%20POR%20DOEN%C3%87AS%20OK.pdf')">
             <i class="glyphicon glyphicon-list-alt"></i>
             <div>Tabela de Doenças</div>
         </div>
         <div class="botao" onclick="abrirPDF('https://scih-hslc.github.io/Higienedasmaos/')">
             <i class="glyphicon glyphicon-eye-open"></i>
-            <div>Formulario observadores oculto</div>
+            <div>Formulário Observadores Oculto</div>
         </div>
-         <div class="botao" onclick="abrirPDF('https://docs.google.com/gview?url=https://raw.githubusercontent.com/SCIH-HSLC/scih-hslc.github.io/blob/main/Boletim_semanal_epidemiologico.pdf&embedded=true')">
+        <div class="botao" onclick="abrirPDF('https://raw.githubusercontent.com/SCIH-HSLC/scih-hslc.github.io/main/Boletim_semanal_epidemiologico.pdf')">
             <i class="glyphicon glyphicon-bullhorn"></i>
             <div>Boletim SCIH</div>
         </div>
-        <div class="botao" onclick="abrirModal()>
+        <div class="botao" onclick="abrirModal()">
             <i class="glyphicon glyphicon-calendar"></i>
             <div>Consumo de Álcool</div>
         </div>
@@ -112,41 +113,39 @@
 
     <!-- Modal para gráficos -->
     <div id="modal">
-    <div id="modal-content">
-        <h2>Gráfico de Consumo de Álcool</h2>
-        <canvas id="grafico"></canvas>
-        <button class="close-btn" onclick="fecharModal()">Fechar</button>
+        <div id="modal-content">
+            <h2>Gráfico de Consumo de Álcool</h2>
+            <canvas id="grafico"></canvas>
+            <button class="close-btn" onclick="fecharModal()">Fechar</button>
+        </div>
     </div>
-</div>
 
-<script>
-    function abrirPDF(caminho) {
-        window.open(caminho, '_blank');
-    }
+    <script>
+        function abrirPDF(caminho) {
+            window.open(caminho, '_blank');
+        }
 
-    function abrirModal() {
-        document.getElementById("modal").style.display = "flex";
-        desenharGrafico();
-    }
+        let grafico = null;
 
-    function fecharModal() {
-        document.getElementById("modal").style.display = "none";
-    }
-
-    function desenharGrafico() {
-        const ctx = document.getElementById('grafico').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['UTI ADU', 'UTI PED', 'UTI NEO', 'PSA', 'PSI', 'PSGO', 'PSORT', '7°', '6°', '5°', 'PED', 'CC', 'CO', 'HOSP DIA', 'SADT'],
-                datasets: [{
-                    label: 'Consumo de Álcool (Adesão geral)',
-                    data: [84, 86, 75, 90, 88, 79, 85, 87, 80, 78, 76, 82, 81, 83, 77], // Exemplo de dados
-                    backgroundColor: 'rgba(0, 0, 198, 0.5)'
-                }]
+        function abrirModal() {
+            document.getElementById("modal").style.display = "flex";
+            if (!grafico) {
+                desenharGrafico();
             }
-        });
-    }
-    </script>
-</body>
-</html>
+        }
+
+        function fecharModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function desenharGrafico() {
+            const ctx = document.getElementById('grafico').getContext('2d');
+            grafico = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['UTI ADU', 'UTI PED', 'UTI NEO', 'PSA', 'PSI', 'PSGO', 'PSORT', '7°', '6°', '5°', 'PED', 'CC', 'CO', 'HOSP DIA', 'SADT'],
+                    datasets: [{
+                        label: 'Consumo de Álcool (Adesão geral)',
+                        data: [84, 86, 75, 90, 88, 79, 85, 87, 80, 78, 76
+::contentReference[oaicite:10]{index=10}
+ 
