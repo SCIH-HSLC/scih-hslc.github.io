@@ -144,28 +144,52 @@
     }
 
     function desenharGrafico() {
-      const ctx = document.getElementById('grafico').getContext('2d');
-      grafico = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['UTI ADU', 'UTI PED', 'UTI NEO', 'PSA', 'PSI', 'PSGO', 'PSORT', '7°', '6°', '5°', 'PED', 'CC', 'CO', 'HOSP DIA', 'SADT'],
-          datasets: [{
-            label: 'Consumo de Álcool (Adesão geral)',
-            data: [84, 86, 75, 90, 88, 79, 85, 87, 80, 78, 76, 82, 81, 83, 77],
-            backgroundColor: 'rgba(0, 0, 198, 0.5)',
-            borderColor: 'rgba(0, 0, 198, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true
+  const ctx = document.getElementById('grafico').getContext('2d');
+  
+  // Registrar o plugin de anotação
+  Chart.register(ChartAnnotation);
+  
+  grafico = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['UTI ADU', 'UTI PED', 'UTI NEO', 'PSA', 'PSI', 'PSGO', 'PSORT', '7°', '6°', '5°', 'PED', 'CC', 'CO', 'HOSP DIA', 'SADT'],
+      datasets: [{
+        label: 'Consumo de Álcool (Adesão geral)',
+        data: [84, 86, 75, 90, 88, 79, 85, 87, 80, 78, 76, 82, 81, 83, 77],
+        backgroundColor: 'rgba(0, 0, 198, 0.5)',
+        borderColor: 'rgba(0, 0, 198, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      plugins: {
+        // Configuração da anotação
+        annotation: {
+          annotations: {
+            linhaMeta: {
+              type: 'line',
+              yMin: 20,
+              yMax: 20,
+              borderColor: 'red',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              label: {
+                content: 'Meta 20 ml',
+                enabled: true,
+                position: 'end'
+              }
             }
           }
         }
-      });
+      }
+    }
+  });
     }
   </script>
 </body>
