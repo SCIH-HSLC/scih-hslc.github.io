@@ -120,13 +120,15 @@
   <div id="modal">
     <div id="modal-content">
       <h2>Gráfico de Consumo de Álcool</h2>
-      <canvas id="grafico"></canvas>
+      <canvas id="grafico1"></canvas>
+      <canvas id="grafico2"></canvas>
       <button class="close-btn" onclick="fecharModal()">Fechar</button>
     </div>
   </div>
 
   <script>
-    let grafico = null;
+    let grafico1 = null;
+    let grafico2 = null;
 
     function abrirPDF(caminho) {
       window.open(caminho, '_blank');
@@ -134,7 +136,10 @@
 
     function abrirModal() {
       document.getElementById("modal").style.display = "flex";
-      if (!grafico) {
+      if (!grafico1) {
+        desenharGrafico();
+      }
+       if (!grafico2) {
         desenharGrafico();
       }
     }
