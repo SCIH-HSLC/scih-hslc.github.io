@@ -98,24 +98,26 @@
   </style>
 </head>
 <body>
-  <!-- Painel de botões -->
-   <div class="botao" onclick="abrirPDF('https://docs.google.com/gview?url=https://raw.githubusercontent.com/SCIH-HSLC/lembretes/main/TABELA%20DE%20PRECAU%C3%87%C3%95ES%20POR%20DOEN%C3%87AS%20OK.pdf&embedded=true')">
-             <i class="glyphicon glyphicon-list-alt"></i>
-             <div>Tabela de Doenças</div>
-    </div>
-    <div class="botao" onclick="abrirPDF('https://scih-hslc.github.io/Higienedasmaos/')">
-      <i class="glyphicon glyphicon-eye-open"></i>
-      <div>Formulário Observadores Oculto</div>
-    </div>
-    <div class="botao" onclick="abrirPDF('https://raw.githubusercontent.com/SCIH-HSLC/scih-hslc.github.io/main/Boletim_semanal_epidemiologico.pdf')">
-      <i class="glyphicon glyphicon-bullhorn"></i>
-      <div>Boletim SCIH</div>
-    </div>
-    <div class="botao" onclick="abrirModal()">
-      <i class="glyphicon glyphicon-calendar"></i>
-      <div>Consumo de Álcool</div>
-    </div>
+  <!-- Painel de botões com layout horizontal -->
+<div id="painel-botoes" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+  <div class="botao" onclick="abrirPDF('https://docs.google.com/gview?url=https://raw.githubusercontent.com/SCIH-HSLC/lembretes/main/TABELA%20DE%20PRECAU%C3%87%C3%95ES%20POR%20DOEN%C3%87AS%20OK.pdf&embedded=true')">
+    <i class="glyphicon glyphicon-list-alt"></i>
+    <div>Tabela de Doenças</div>
   </div>
+  <div class="botao" onclick="abrirPDF('https://scih-hslc.github.io/Higienedasmaos/')">
+    <i class="glyphicon glyphicon-eye-open"></i>
+    <div>Formulário Observadores Oculto</div>
+  </div>
+  <div class="botao" onclick="abrirPDF('https://raw.githubusercontent.com/SCIH-HSLC/scih-hslc.github.io/main/Boletim_semanal_epidemiologico.pdf')">
+    <i class="glyphicon glyphicon-bullhorn"></i>
+    <div>Boletim SCIH</div>
+  </div>
+  <div class="botao" onclick="abrirModal()">
+    <i class="glyphicon glyphicon-calendar"></i>
+    <div>Consumo de Álcool</div>
+  </div>
+</div>
+
 
   <!-- Modal separado -->
   <div id="modal">
