@@ -121,52 +121,84 @@
     <div id="modal-content">
       <h2>Gráfico de Consumo de Álcool</h2>
       <canvas id="grafico"></canvas>
+      <br>
+    <canvas id="grafico2" width="400" height="200"></canvas>
+    <br>
       <button class="close-btn" onclick="fecharModal()">Fechar</button>
     </div>
   </div>
 
   <script>
     let grafico = null;
+let grafico2 = null;
 
-    function abrirPDF(caminho) {
-      window.open(caminho, '_blank');
-    }
+function abrirModal() {
+  document.getElementById("modal").style.display = "flex";
 
-    function abrirModal() {
-      document.getElementById("modal").style.display = "flex";
-      if (!grafico) {
-        desenharGrafico();
+  if (!grafico) {
+    desenharGrafico();
+  }
+
+  if (!grafico2) {
+    desenharOutroGrafico();
+  }
+}
+
+function fecharModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function desenharGrafico() {
+  const ctx = document.getElementById('grafico').getContext('2d');
+  grafico = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['UTI ADU', 'UTI PED', 'UTI NEO', 'PSA', 'PSI', 'PSGO', 'PSORT', '7°', '6°', '5°', 'PED', 'CC', 'CO', 'HOSP DIA', 'SADT'],
+      datasets: [{
+        label: 'Consumo de Álcool (Adesão geral)',
+        data: [84, 86, 75, 90, 88, 79, 85, 87, 80, 78, 76, 82, 81, 83, 77],
+        backgroundColor: 'rgba(0, 0, 198, 0.5)',
+        borderColor: 'rgba(0, 0, 198, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
       }
     }
+  });
+}
 
-    function fecharModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-
-    function desenharGrafico() {
-      const ctx = document.getElementById('grafico').getContext('2d');
-      grafico = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['UTI ADU', 'UTI PED', 'UTI NEO', 'PSA', 'PSI', 'PSGO', 'PSORT', '7°', '6°', '5°', 'PED', 'CC', 'CO', 'HOSP DIA', 'SADT'],
-          datasets: [{
-            label: 'Consumo de Álcool (Adesão geral)',
-            data: [84, 86, 75, 90, 88, 79, 85, 87, 80, 78, 76, 82, 81, 83, 77],
-            backgroundColor: 'rgba(0, 0, 198, 0.5)',
-            borderColor: 'rgba(0, 0, 198, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
+function desenharOutroGrafico() {
+  const ctx2 = document.getElementById('grafico2').getContext('2d');
+  grafico2 = new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
+      datasets: [{
+        label: 'Outro Gráfico Exemplo',
+        data: [10, 20, 15, 30, 25],
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 2,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
         }
-      });
+      }
     }
+  });
+}
+
   </script>
 </body>
 </html>
